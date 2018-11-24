@@ -38,8 +38,8 @@ async def h(ctx):
 
 @bot.command(pass_context=True)
 async def r(ctx, user, proof, proof2 = "", proof3 = ""):
-	if ctx.message.channel.id == os.getenv("channelid") and grabId(user) != False:
-		author = ctx.message.author		
+	author = ctx.message.author	
+	if ctx.message.channel.id == os.getenv("channelid") and grabId(user) != False:	
 		adesc = "{0} \n {1} \n {2} \n Report by: {3} \n DiscordID: {4}".format(proof ,proof2, proof3, author, author.id)
 		cdata = {"key":trellokey,"token":token,"idList":list,"name":user,"desc":adesc}
 		req = requests.post(boardurl, params=cdata)
