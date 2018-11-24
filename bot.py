@@ -39,5 +39,3 @@ if ctx.message.channel.id == os.getenv("channelid"):
 
 bot.run(os.getenv("disctoken"))
 
-"""testjjjj"""
-
