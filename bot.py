@@ -22,8 +22,8 @@ async def on_ready():
 	
 @bot.command(pass_context=True)
 async def h(ctx):
-if ctx.message.channel.id == os.getenv("channelid"):
-	await bot.say ("to report use !r useryouarereporting proof1 proof2 proof3, you can add up to 3 proofs ")
+	if ctx.message.channel.id == os.getenv("channelid"):
+		await bot.say ("to report use !r useryouarereporting proof1 proof2 proof3, you can add up to 3 proofs ")
 
 @bot.command(pass_context=True)
 async def r(ctx, user, proof, proof2 = "", proof3 = ""):
