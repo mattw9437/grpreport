@@ -10,6 +10,7 @@ token = os.getenv("trellotoken")
 trellokey = os.getenv("trellokey")
 boardurl = "https://trello.com/1/cards"
 list = os.getenv("listid")
+rblxapi = "http://api.roblox.com/users/get-by-username"
 
 bot = commands.Bot(command_prefix="!")
 
