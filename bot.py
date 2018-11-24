@@ -36,9 +36,8 @@ async def help(ctx)
 if ctx.message.channel.id == os.getenv("channelid"):
 	await bot.say("to report use !r useryouarereporting proof1 proof2 proof3, you can add up to 3 proofs ")
 
-
-
-
+"""test"""
 
 
 bot.run(os.getenv("disctoken"))
+
