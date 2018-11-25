@@ -48,7 +48,7 @@ async def r(ctx, user, proof, *args):
 	author = ctx.message.author
 	userid = grabId(user)	
 	if ctx.message.channel.id == os.getenv("channelid") and userid != False:
- 		adesc = proof + "\n" + iterate(args) + "\n Report by:" + author.name +  "\n DiscordID:" + author.id
+		adesc = proof + "\n" + iterate(args) + "\n Report by:" + author.name +  "\n DiscordID:" + author.id
 		cdata = {"key":trellokey,"token":token,"idList":list,"name":user + ":" + str(userid),"desc":adesc}
 		req = requests.post(boardurl, params=cdata)
 		jsont = json.loads(req.text)
