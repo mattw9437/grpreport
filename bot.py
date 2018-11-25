@@ -44,7 +44,7 @@ async def r(ctx, user, proof, *args):
 		descproof = ""	
 		for proofs in args:
 			descproof += proofs + "\n"
-		adesc = proofs +  "\n Report by:" + author.username +  "\n DiscordID:" + author.id
+		adesc = proofs +  "\n Report by:" + author.name +  "\n DiscordID:" + author.id
 		cdata = {"key":trellokey,"token":token,"idList":list,"name":user + ":" + userid,"desc":adesc}
 		req = requests.post(boardurl, params=cdata)
 		jsont = json.loads(req.text)
