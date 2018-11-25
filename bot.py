@@ -14,6 +14,13 @@ rblxapi = "http://api.roblox.com/users/get-by-username"
 
 bot = commands.Bot(command_prefix="!")
 
+def iterate(args):
+    descproof = ""	
+    for proofs in args:
+	    descproof += proofs + "\n"
+
+    return descproof
+
 def grabId(rblxuser):
     apiresp = requests.get(rblxapi, timeout=5, data={"username" : rblxuser})
     pijson = json.loads(apiresp.text)
@@ -42,9 +49,7 @@ async def r(ctx, user, proof, *args):
 	userid = grabId(user)	
 	if ctx.message.channel.id == os.getenv("channelid") and userid != False:
 		descproof = ""	
-		for proofs in args:
-			descproof += proofs + "\n"
-		adesc = proofs +  "\n Report by:" + author.name +  "\n DiscordID:" + author.id
+		adesc = iterate(args) +  "\n Report by:" + author.name +  "\n DiscordID:" + author.id
 		cdata = {"key":trellokey,"token":token,"idList":list,"name":user + ":" + str(userid),"desc":adesc}
 		req = requests.post(boardurl, params=cdata)
 		jsont = json.loads(req.text)
