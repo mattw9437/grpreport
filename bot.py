@@ -43,7 +43,7 @@ async def r(ctx, user, proof, *args):
 	if ctx.message.channel.id == os.getenv("channelid") and userid != False:
 		descproof = ""	
 		for proofs in args:
-			descproof += "{} \n".format(proofs)
+			descproof += proofs + "\n"
 		adesc = "{1} \n Report by: {2} \n DiscordID: {3}".format(descproof, author, author.id)
 		cdata = {"key":trellokey,"token":token,"idList":list,"name":user + ":" + userid,"desc":adesc}
 		req = requests.post(boardurl, params=cdata)
