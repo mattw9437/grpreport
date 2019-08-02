@@ -43,7 +43,7 @@ async def h(ctx):
 	
 	print(ctx.message.channel.id == os.getenv("channelid"))
 	if ctx.message.channel.id == int(os.getenv("channelid")):
-		await bot.say ("to report use !r useryouarereporting proof1 proof2 proof3, you can add up to 3 proofs ")
+		await ctx.send("to report use !r useryouarereporting proof1 proof2 proof3, and so on")
 
 @bot.command(pass_context=True)
 async def r(ctx, user, proof, *args):
@@ -55,9 +55,9 @@ async def r(ctx, user, proof, *args):
 		req = requests.post(boardurl, params=cdata)
 		jsont = json.loads(req.text)
 		clink = jsont["shortUrl"]
-		await bot.say ("ty" + author.mention + " " + clink)
+		await ctx.send("ty" + author.mention + " " + clink)
 	elif ctx.message.channel.id == os.getenv("channelid") and userid == False:
-		await bot.say ("{0} is not a valid username {1}".format(user, author.mention))
+		await ctx.send("{0} is not a valid username {1}".format(user, author.mention))
 		
 
 
