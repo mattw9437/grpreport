@@ -8,7 +8,7 @@ import os
 
 token = os.getenv("trellotoken")
 trellokey = os.getenv("trellokey")
-boardurl = "https://trello.com/1/cards"
+boardurl = "https://trello.com/Rknc2a7b/cards"
 list = os.getenv("listid")
 rblxapi = "http://api.roblox.com/users/get-by-username"
 
