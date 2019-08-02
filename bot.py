@@ -40,18 +40,16 @@ async def on_ready():
 	
 @bot.command(pass_context=True)
 async def h(ctx):
-	print(type(os.getenv("channelid")))
-	print(type(ctx.message.channel.id))
 	
 	print(ctx.message.channel.id == os.getenv("channelid"))
-	if ctx.message.channel.id == os.getenv("channelid"):
+	if ctx.message.channel.id == int(os.getenv("channelid")):
 		await bot.say ("to report use !r useryouarereporting proof1 proof2 proof3, you can add up to 3 proofs ")
 
 @bot.command(pass_context=True)
 async def r(ctx, user, proof, *args):
 	author = ctx.message.author
 	userid = grabId(user)	
-	if ctx.message.channel.id == os.getenv("channelid") and userid != False:
+	if ctx.message.channel.id == int(os.getenv("channelid")) and userid != False:
 		adesc = proof + "\n" + iterate(args) + "\n Report by:" + author.name +  "\n DiscordID:" + author.id
 		cdata = {"key":trellokey,"token":token,"idList":list,"name":user + ":" + str(userid),"desc":adesc}
 		req = requests.post(boardurl, params=cdata)
